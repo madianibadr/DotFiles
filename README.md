@@ -8,4 +8,3 @@
 5. Reliable
 6. Cli is Love, Cli is life
 7. Winfows is a Spook
-8. 

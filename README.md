@@ -7,4 +7,4 @@
 4. Stores data in flat text files
 5. Reliable
 6. Cli is Love, Cli is life
-7. Winfows is a Spook
+7. Windows is a Spook

@@ -1,5 +1,5 @@
 # DotFiles
-## Wasaya Linux a sab3a
+## a system might be called ideal if it
 
 1. Works
 2. Minimal

@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Debugging information
+echo "QUTE_URL: $QUTE_URL" >> /tmp/qutebrowser_script.log
+
+# Ensure youtube-dl or yt-dlp is installed
+if ! command -v yt-dlp &> /dev/null && ! command -v youtube-dl &> /dev/null; then
+    echo "yt-dlp or youtube-dl is not installed. Aborting." >> /tmp/qutebrowser_script.log
+    exit 1
+fi
+
+# Get the URL of the current page
+url="$QUTE_URL"
+if [ -z "$url" ]; then
+    echo "URL is empty. Aborting." >> /tmp/qutebrowser_script.log
+    exit 1
+fi
+
+# Prompt the user for download format
+format=$(echo -e "mp4\nmp3\nthumb" | dmenu -p "Choose format:" 2>> /tmp/qutebrowser_script.log)
+if [ -z "$format" ]; then
+    echo "No format selected. Aborting." >> /tmp/qutebrowser_script.log
+    exit 1
+fi
+
+# Check if format is valid
+if [[ "$format" != "mp4" && "$format" != "mp3" && "$format" != "thumb" ]]; then
+    echo "Invalid format selected." >> /tmp/qutebrowser_script.log
+    exit 1
+fi
+
+# Download the video in the selected format
+if [ "$format" == "mp4" ]; then
+    yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]" "$url" -P "~/Videos" >> /tmp/qutebrowser_script.log 2>&1 && notify-send "finished downloading $url"
+elif [ "$format" == "mp3" ]; then
+    yt-dlp --extract-audio --audio-format mp3 "$url" -P "~/Music" >> /tmp/qutebrowser_script.log 2>&1
+    output=$(yt-dlp --extract-audio --audio-format mp3 --get-filename -o "%(title)s.%(ext)s" "$url") && notify-send "finished downloading $output"
+
+elif [ "$format" == "thumb" ]; then
+  yt-dlp --skip-download --write-thumbnail "$url"
+
+fi

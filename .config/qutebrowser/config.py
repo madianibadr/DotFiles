@@ -1,6 +1,11 @@
 # run on tor network
 #c.content.proxy = 'socks5://localhost:9050/'
 
+###calling userscripts
+#yt_download
+config.bind('<Alt-d>', 'spawn --userscript yt_download')
+
+
 # Move tab to the right
 config.bind('<Ctrl+Shift+J>', 'tab-move +')
 
@@ -170,7 +175,6 @@ c.url.searchengines = {
     'DEFAULT':  'https://duckduckgo.com/?ia=web&q={}',
     'dd':      'https://thefreedictionary.com/{}',
     'e':       'https://www.ebay.com/sch/i.html?_nkw={}',
-    'fb':      'https://www.facebook.com/s.php?q={}',
     'gh':      'https://github.com/search?o=desc&q={}&s=stars',
     '!gist':    'https://gist.github.com/search?q={}',
     '!gi':      'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',

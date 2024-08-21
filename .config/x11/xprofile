@@ -1,0 +1,21 @@
+#!/bin/sh
+
+
+# runs when a DM logs you into a graphical session
+
+xrandr --dpi 96
+# set the background with the `setbg` script
+setbg &
+# use Xresources colors/settings on startup
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
+
+# autostart="mpd picom dunst unclutter pipewire remapd"
+
+autostart="mpd xcompmgr dunst unclutter pipewire remapd"
+
+for program in $autostart; do
+	pidof -sx "$program" || "$program" &
+done >/dev/null 2>&1
+
+# Ensure that xrdb has finished running before moving on to start the WM/DE.
+[ -n "$xrdbpid" ] && wait "$xrdbpid"

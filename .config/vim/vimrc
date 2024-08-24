@@ -1,0 +1,50 @@
+" Source viminfo
+set viminfo+=n~/.config/vim/viminfo
+" Enable line numbers
+set number
+
+" Enable relative line numbers
+set relativenumber
+
+" Enable syntax highlighting
+syntax on
+
+" Set indentation to 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Enable auto-indentation
+set autoindent
+
+" Highlight search results
+set hlsearch
+
+" Ignore case when searching
+set ignorecase
+set smartcase
+
+" Enable mouse support
+set mouse=a
+
+" Enable line wrapping
+set wrap
+
+" Show matching parentheses and brackets
+set showmatch
+
+" Enable persistent undo
+set undofile
+
+" Faster completion
+set updatetime=300
+
+" set colorsheme
+colorscheme deep-space
+
+
+if exists('&t_SI')
+    let &t_SI = "\e[6 q"  " Insert mode - vertical bar
+    let &t_EI = "\e[2 q"  " Normal mode - block cursor
+    let &t_SR = "\e[4 q"  " Replace mode - underscore
+endif

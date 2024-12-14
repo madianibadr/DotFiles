@@ -1,5 +1,6 @@
+set termguicolors " please vim i want them colors
 let mapleader =","
-set shortmess+=I
+set shortmess+=I "suppress the intro message
 
 autocmd FileType tex inoremap <leader>e \
 
@@ -38,14 +39,24 @@ set noshowmode
 set noruler
 set laststatus=0
 set noshowcmd
-"good colorshemes: deep-space dogrun
-colorscheme vim
+"good colorshemes: vim deep-space dogrun mountaineer
+colorscheme mountaineer
 
-"move the highlighted line or lines up or down a line
+" move the highlighted line or lines up or down a line
 vnoremap <C-Up> :m '<-2<CR>gv=gv
 nnoremap <C-Up> :m .-2<CR>==
 vnoremap <C-Down> :m '>+1<CR>gv=gv
 nnoremap <C-Down> :m .+1<CR>==
+" better half page moving
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+" same for * when you are in string search for the same string
+nnoremap * *zz
+
+
+" same for n in / or ?
+nnoremap n nzz
+nnoremap N Nzz
 
 "telescope
 " Use <space>sf to find files
@@ -78,9 +89,6 @@ nnoremap <silent> <space>g :Telescope live_grep<CR>
 	map <leader>n :NERDTreeToggle<CR>
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 	let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
-
-" vim-airline
-
 
 " Set the theme
 	let g:airline_theme = 'monochrome'
@@ -127,13 +135,12 @@ nnoremap <silent> <space>g :Telescope live_grep<CR>
 " Save file as sudo on files that require root permission
 	cabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
-
 " Automatically deletes all trailing whitespace and newlines at end of file on save. & reset cursor position
  	autocmd BufWritePre * let currPos = getpos(".")
 	autocmd BufWritePre * %s/\s\+$//e
 	autocmd BufWritePre * %s/\n\+\%$//e
   autocmd BufWritePre *.[ch] %s/\%$/\r/e " add trailing newline for ANSI C standard
-  	autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
+  autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
 	autocmd BufWritePost bm-files,bm-dirs !shortcuts

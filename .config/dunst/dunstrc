@@ -1,0 +1,32 @@
+[global]
+    monitor = 0
+    follow = keyboard
+    width = 300
+    height = (0, 300)
+    offset = (19, 38)
+    padding = 2
+    horizontal_padding = 2
+    transparency = 40
+    font = Monospace 13
+    format = "<b>%s</b>\n%b"
+    corner_radius = 20
+    origin = top-center
+    frame_color = "#8AABAC"
+    gap_size = 2
+    alignment = center
+
+[urgency_low]
+    background = "#0f1419"  # Background color
+    foreground = "#e6e1cf"  # Foreground color
+    timeout = 3
+
+[urgency_normal]
+    foreground = "#0f1419"  # Foreground color
+    background = "#8AABAC"  # Blue
+    timeout = 5
+
+[urgency_critical]
+    background = "#ff3333"  # Red
+    foreground = "#e6e1cf"  # Foreground color
+    frame_color = "#e7c547" # Yellow
+    timeout = 10

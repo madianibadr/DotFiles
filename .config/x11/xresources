@@ -1,53 +1,61 @@
+/* load a theme from a file */
+/* #include "/home/lain/.config/x11/xcolors/DoomOne" */
+
 !! Transparency (0-1):
-*.alpha: 0.8
+*.alpha: .7
 
 !! Set a default font and font size as below:
-*.font: monospace:size=14
+/* *.font: monospace:size=14 */
+/* good fonts: monospace, JetBrainsMono Nerd Font Mono */
 
-!Xcursor.theme: Vanilla-DMZ
+*.font: CaskaydiaMono Nerd Font Mono:size=15
+
+/* sets cursor theme (needs to be installed) */
 Xcursor.theme: Breeze
+Xcursor.size: 24
 
-! i dont remember this colorscheme name its cool tho
-*.foreground:  #e6e1cf
+/* add this in dwm config.h */
+*.fucking_red_border: #8AABAC
+
+/* the actual theme: */
+
+*.foreground:  #ddd8bb
 *.background:  #0f1419
-*.cursorColor: #f29718
+*.cursorColor: #e6e0c2
 !
 ! Black
-*.color0:      #000000
-*.color8:      #323232
+*.color0:      #0f1419
+*.color8:      #0f1419
 !
 ! Red
-*.color1:      #ff3333
-*.color9:      #ff6565
+*.color1:      #e46a78
+*.color9:      #ec818c
 !
 ! Green
-*.color2:      #b8cc52
-*.color10:     #eafe84
+*.color2:      #98bc6d
+*.color10:     #9ec967
 !
 ! Yellow
-*.color3:      #e7c547
-*.color11:     #fff779
+*.color3:      #e5c283
+*.color11:     #f1c982
 !
 ! Blue
-*.color4:      #36a3d9
-*.color12:     #68d5ff
+*.color4:      #7eb3c9
+*.color12:     #7bc2df
 !
 ! Magenta
-*.color5:      #f07178
-*.color13:     #ffa3aa
+*.color5:      #957fb8
+*.color13:     #a98fd2
 !
 ! Cyan
-*.color6:      #95e6cb
-*.color14:     #c7fffd
+*.color6:      #7eb3c9
+*.color14:     #7bc2df
 !
 ! White
-*.color7:      #ffffff
-*.color15:     #ffffff
+*.color7:      #ddd8bb
+*.color15:     #a8a48d
 !
 ! Bold, Italic, Underline
-*.colorBD:     #e6e1cf
+*.colorBD:     #3c3c51
 !*.colorIT:
 !*.colorUL:
-
-! i want dwm to use red border
-*.fucking_red_border: #ff3333

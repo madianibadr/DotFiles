@@ -2,6 +2,7 @@ set termguicolors " please vim i want them colors
 let mapleader =","
 set shortmess+=I "suppress the intro message
 
+" this is very helpful while writing tex files
 autocmd FileType tex inoremap <leader>e \
 
 "check if vim-plug installed if not install it
@@ -26,6 +27,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'machakann/vim-sandwich'  "cib but kinda slow
+Plug 'folke/tokyonight.nvim' "color
+Plug 'tribela/vim-transparent' "i hate doing this
 call plug#end()
 
 " set cursorline
@@ -40,7 +43,7 @@ set noruler
 set laststatus=0
 set noshowcmd
 "good colorshemes: vim deep-space dogrun mountaineer
-colorscheme mountaineer
+colorscheme ayu
 
 " move the highlighted line or lines up or down a line
 vnoremap <C-Up> :m '<-2<CR>gv=gv

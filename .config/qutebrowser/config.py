@@ -1,9 +1,38 @@
 # run on tor network
 # c.content.proxy = 'socks5://localhost:9050/'
 
-# config.bind('<Ctrl-h>', 'fake-key <Backspace>', 'insert')
+# dark mode
+# config.set("colors.webpage.darkmode.enabled", True)
+
+# using custom styles
+# config.set("content.user_stylesheets", ["~/.config/qutebrowser/themes/dark_theme.css"])
+
+
+# c.content.user_stylesheets = [
+#     './themes/solarized-dark.css',
+#     './themes/custom_solarized.css'
+# ]
+
+# Disable Auto-Completion for URLs
+c.completion.web_history.max_items = 0
+
+
+
+# Disable session saving, so no browsing history is retained
+c.auto_save.session = False
+
+# clear cookies after the browser is closed
+# c.content.cookies.store = False
+
+config.bind('<Ctrl-h>', 'fake-key <Backspace>', 'insert')
+config.bind('<Ctrl-j>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
 # Opens vim to edit current text
 config.bind('<Ctrl+e>', 'edit-text')
+
+# Aliase
+c.aliases['w'] = 'session-save'
+c.aliases['wq'] = 'quit --save'
 
 # Enable private browsing mode to reduce cache usage
 c.content.private_browsing = False
@@ -32,6 +61,12 @@ c.history_gap_interval = 10
 #yt_download
 config.bind('<Alt-d>', 'spawn --userscript yt_download')
 
+# Zoom In
+config.bind('<Alt+Shift+J>', 'zoom-in')
+# Zoom Out
+config.bind('<Alt+Shift+K>', 'zoom-out')
+
+
 
 # Move tab to the right
 config.bind('<Ctrl+Shift+J>', 'tab-move +')
@@ -40,7 +75,7 @@ config.bind('<Ctrl+Shift+J>', 'tab-move +')
 config.bind('<Ctrl+Shift+K>', 'tab-move -')
 
 #sets vim as the editor
-c.editor.command = ["st", "-e", "vim", "{}"]
+c.editor.command = ["st", "-e", "nvim", "{}"]
 
 #edit-url command
 config.bind('E', 'edit-url')
@@ -122,15 +157,18 @@ config.set('content.register_protocol_handler', False, 'https://mail.google.com?
 
 c.url.searchengines = {
     'DEFAULT':  'https://duckduckgo.com/?ia=web&q={}',
-    'gm':      'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
-    'g':      'https://google.com/search?q={}',
-    'm':       'https://www.google.com/maps/search/{}',
-    'dd':      'https://thefreedictionary.com/{}',
-    'e':       'https://www.ebay.com/sch/i.html?_nkw={}',
-    'gh':      'https://github.com/search?o=desc&q={}&s=stars',
+    'gm':       'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
+    'g':        'https://google.com/search?q={}',
+    'm':        'https://www.google.com/maps/search/{}',
+    'dd':       'https://thefreedictionary.com/{}',
+    'e':        'https://www.ebay.com/sch/i.html?_nkw={}',
+    'gh':       'https://github.com/search?o=desc&q={}&s=stars',
     '!gist':    'https://gist.github.com/search?q={}',
     '!p':       'https://pry.sh/{}',
-    '!r':       'https://www.reddit.com/search?q={}',
+    'r':        'https://www.reddit.com/search?q={}',
     '!w':       'https://en.wikipedia.org/wiki/{}',
-    'yt':      'https://www.youtube.com/results?search_query={}'
+    'yt':       'https://www.youtube.com/results?search_query={}',
+    'mal':      'https://myanimelist.net/search/all?q={}&cat=all',
+    'market':   'https://www.facebook.com/marketplace/casablanca/search?query={}',
+    'ar':       'https://archive.org/search?query={}',
 }
